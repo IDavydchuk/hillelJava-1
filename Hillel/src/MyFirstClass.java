@@ -9,19 +9,12 @@ public class MyFirstClass {
 
         long i = 1233213213213213L;
 
-
-
-
         double height = 172;
         double weight = 71;
 
         double ratio = weight / height;
 
-
-
         System.out.println(ratio);
-
-
     }
 
     public static void age() {
@@ -50,5 +43,4 @@ public class MyFirstClass {
 
         System.out.println(result);
     }
-
 }
