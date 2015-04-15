@@ -1,13 +1,22 @@
+package com.hillel.java.oopBasics;
+
 /**
  * Created by Mfarsikov on 10.04.2015.
  */
 public class OOP {
 
     public static void main(String[] args) {
-        // oopIntro();
+        oopIntro();
+        int operationResult = new OOP().negativeAge();
 
         Cat cat1 = new Cat("Tom", 2);
         Cat cat2 = new Cat("Tom", 2);
+
+        int age = 1;
+
+        cat1.setAge(age);
+
+        System.out.println(age);
 
         System.out.println("they are equal using ==: " + (cat1 == cat2));
 
@@ -29,15 +38,26 @@ public class OOP {
 
         Vet vet = new Vet();
 
+        Cat cat3 = null;
+
+
+
         vet.registerCat(cat1);
         vet.registerCat(cat2);
+        vet.registerCat(cat3);
         vet.print();
 
         vet.makeVaccine();
 
         vet.print();
 
-        System.out.println();
+    }
+
+    public int negativeAge(){
+        Cat cat = new Cat();
+        cat.setAge(-1);
+        System.out.println("this message never be printed");
+        return 0;
     }
 
 }

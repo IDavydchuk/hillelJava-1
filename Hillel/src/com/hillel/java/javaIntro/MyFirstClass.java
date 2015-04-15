@@ -1,3 +1,7 @@
+package com.hillel.java.javaIntro;
+
+import com.hillel.java.oopBasics.Cat;
+
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
@@ -48,6 +52,9 @@ public class MyFirstClass {
         doWhileLoop();
 
         generateRandomNumber();
+
+        Cat cat = new Cat();
+       // cat.name = "Jerry";
     }
 
     private static void mathOperationsExample() {
