@@ -1,34 +1,56 @@
-import com.hillel.java.oopBasics.StringArray;
+import com.hillel.java.dataStructures.ArrayList.StringArray;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by Mfarsikov on 17.04.2015.
  */
 public class StringArrayTest {
 
-    public  void main(String[] args) {
+    @Test
+    public void sizeTest() {
         StringArray array = new StringArray();
-        System.out.println("Empty array: " + array);
-        System.out.println("Empty array size: " + array.size());
+        assertEquals(array.size(), 0);
 
-        array.add("first");
-        System.out.println("One element " + array);
-        System.out.println("One array size: " + array.size());
+        array.add("A");
+        assertEquals(array.size(), 1);
 
-        array.add("second");
-        System.out.println("Two elements: " + array);
-        System.out.println("Two array size: " + array.size());
-
-        System.out.println("First element: " + array.get(0));
-        System.out.println("Second element: " + array.get(1));
-
-        System.out.println("Third element: " + array.get(2));
-
+        array.add("B");
+        array.add("C");
+        assertEquals(array.size(), 3);
     }
 
     @Test
-    public void asd(){
-        System.out.println("test is running");
+    public void toStringTest() {
+        StringArray array = new StringArray();
+        assertEquals("[]", array.toString());
+        array.add("A");
+        assertEquals("[A]", array.toString());
+
+        array.add("B");
+        array.add("C");
+        assertEquals("[A, B, C]", array.toString());
     }
 
+    @Test
+    public void equalityTest() {
+        StringArray one = new StringArray();
+        assertTrue("Not self equal", one.equals(one));
+
+        StringArray other = new StringArray();
+        assertTrue("Empty lists aren't equal", one.equals(other));
+
+        one.add("A");
+        assertFalse("Different lists are equal", one.equals(other));
+        other.add("A");
+
+        one.add("B");
+        one.add("C");
+        other.add("B");
+        other.add("C");
+        assertTrue("Not empty lists aren't equal", one.equals(other));
+    }
 }

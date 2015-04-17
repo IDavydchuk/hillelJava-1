@@ -1,67 +1,61 @@
-package com.hillel.java.oopBasics;
+package com.hillel.java.dataStructures.ArrayList;
 
 import java.util.Arrays;
 
 /**
- * Created by max on 15.04.2015.
+ * Created by Mfarsikov on 17.04.2015.
  */
-public class ImprovedArray {
-
-    private static final int RESIZE_MULTIPLIER = 2;
+public class StringArray {
 
     private String[] array = new String[1];
 
-    private int counter;
+    private int counter = 0;
 
     public void add(String value) {
-        if (counter == array.length) {
+        if (array.length == counter) {
             resize();
         }
         array[counter] = value;
         counter++;
     }
 
-    private void resize() {
-        array = Arrays.copyOf(array, array.length * RESIZE_MULTIPLIER);
-    }
-
     public String get(int index) {
         if (index >= counter) {
-            throw new IndexOutOfBoundsException("index value: " + index + ", size: " + size());
+            throw new IndexOutOfBoundsException("index: " + index + ", size:" + counter);
         }
         return array[index];
+    }
+
+    private void resize() {
+        array = Arrays.copyOf(array, array.length * 2);
     }
 
     public int size() {
         return counter;
     }
 
-    @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (!(obj instanceof ImprovedArray)) {
+        if (!(obj instanceof StringArray)) {
             return false;
         }
-        ImprovedArray other = (ImprovedArray) obj;
+        StringArray other = (StringArray) obj;
+
         if (this.size() != other.size()) {
             return false;
         }
         for (int i = 0; i < size(); i++) {
-            if (!this.get(i).equals(other.get(i))) {
+            if (!(this.get(i).equals(other.get(i)))) {
                 return false;
             }
         }
         return true;
     }
 
-    @Override
     public String toString() {
         String result = "[";
         for (int i = 0; i < size(); i++) {
             result += get(i);
-            if (i != size() - 1) {
+            if (i + 1 < size()) {
                 result += ", ";
             }
         }

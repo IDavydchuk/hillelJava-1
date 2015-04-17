@@ -1,22 +1,35 @@
-import com.hillel.java.dataStructures.linkedList.LinkedCells;
+import com.hillel.java.dataStructures.linkedList.LinkedCellsRecursive;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 /**
- * Created by Mfarsikov on 17.04.2015.
+ * Created by max on 17.04.2015.
  */
-public class LinkedCellsTest {
+public class LinkedCellsRecursiveTest {
 
     @Test
-    public void emptyListTest() {
-        LinkedCells list = new LinkedCells();
-        assertEquals(list.toString(), "[]");
+    public void emptyListTest(){
+        LinkedCellsRecursive list = new LinkedCellsRecursive();
+        assertEquals("[]", list.toString());
+        assertEquals(0, list.size());
     }
 
     @Test
-    public void toStringTest() {
-        LinkedCells list = new LinkedCells();
+    public void sizingTest(){
+        LinkedCellsRecursive list = new LinkedCellsRecursive();
+        assertEquals(0, list.size());
+
+        list.add("A");
+        assertEquals(1, list.size());
+        list.add("B");
+        list.add("C");
+        assertEquals(3,list.size());
+    }
+
+    @Test
+    public void toStringTest(){
+        LinkedCellsRecursive list = new LinkedCellsRecursive();
         assertEquals("[]", list.toString());
 
         list.add("A");
@@ -26,25 +39,12 @@ public class LinkedCellsTest {
         list.add("C");
         assertEquals("[A, B, C]", list.toString());
     }
-
-    @Test
-    public void sizingTest() {
-        LinkedCells list = new LinkedCells();
-        assertEquals(0, list.size());
-
-        list.add("A");
-        assertEquals(1, list.size());
-        list.add("B");
-        list.add("C");
-        assertEquals(3, list.size());
-    }
-
     @Test
     public void equalityTest() {
-        LinkedCells one = new LinkedCells();
+        LinkedCellsRecursive one = new LinkedCellsRecursive();
         assertTrue("Not self equal", one.equals(one));
 
-        LinkedCells other = new LinkedCells();
+        LinkedCellsRecursive other = new LinkedCellsRecursive();
         assertTrue("Empty lists aren't equal", one.equals(other));
 
         one.add("A");
@@ -57,10 +57,9 @@ public class LinkedCellsTest {
         other.add("C");
         assertTrue("Not empty lists aren't equal", one.equals(other));
     }
-
     @Test
     public void getTest() {
-        LinkedCells list = new LinkedCells();
+        LinkedCellsRecursive list = new LinkedCellsRecursive();
         try {
             list.get(0);
             fail();
