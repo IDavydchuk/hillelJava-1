@@ -13,14 +13,14 @@ public class StringArrayTest {
     @Test
     public void sizeTest() {
         StringArray array = new StringArray();
-        assertEquals(array.size(), 0);
+        assertEquals(0, array.size());
 
         array.add("A");
-        assertEquals(array.size(), 1);
+        assertEquals(1, array.size());
 
         array.add("B");
         array.add("C");
-        assertEquals(array.size(), 3);
+        assertEquals(3, array.size());
     }
 
     @Test
