@@ -9,11 +9,11 @@ public class ImprovedArray {
 
     private static final int RESIZE_MULTIPLIER = 2;
 
-    private String[] array = new String[1];
+    private Object[] array = new Object[1];
 
     private int counter;
 
-    public void add(String value) {
+    public void add(Object value) {
         if (counter == array.length) {
             resize();
         }
@@ -25,7 +25,7 @@ public class ImprovedArray {
         array = Arrays.copyOf(array, array.length * RESIZE_MULTIPLIER);
     }
 
-    public String get(int index) {
+    public Object get(int index) {
         if (index >= counter) {
             throw new IndexOutOfBoundsException("index value: " + index + ", size: " + size());
         }
