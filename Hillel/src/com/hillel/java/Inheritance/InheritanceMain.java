@@ -9,13 +9,61 @@ import java.util.ArrayList;
  */
 public class InheritanceMain {
     public static void main(String[] args) {
+        Circle circle = new Circle(10);
 
+        Rectangle rectangle = new Rectangle(10, 5);
 
+        Colored c = circle;
+
+        ArrayList<Colored> list = new ArrayList<Colored>();
+        list.add(circle);
+        list.add(rectangle);
+
+    }
+
+    public static void polymorphism() {
+        Circle circle = new Circle(10);
+
+        Rectangle rectangle = new Rectangle(10, 5);
+
+        ArrayList<Shape> list = new ArrayList<Shape>();
+        list.add(circle);
+        list.add(rectangle);
+
+        print(list);
+    }
+
+    private static void print(ArrayList<Shape> list) {
+        for (Shape shape : list) {
+            System.out.println(shape);
+        }
+    }
+
+    private static void printAreas(ArrayList<Shape> list) {
+        for (Shape shape : list) {
+            System.out.println("area is " + shape.getArea());
+        }
+    }
+
+    public static void overloadedMethods() {
+        Person person = new Employee("Ivan", "it");
+
+        register(person);
+        //     register(new Person("Petro"));
+    }
+
+    public static void generics() {
+        ArrayList<Person> list = new ArrayList<Person>();
+
+        list.add(new Employee("ivan", "IT"));
+        list.add(new Person("Andrey"));
+
+        Employee employee = (Employee) list.get(0);
     }
 
     public static void inconvinienWay() {
         Employee employee = new Employee("Ivan", "dsf");
-        Person employeeAsPerson = employee;
+        Person employeeAsPerson = new Employee("Ivan", "dsf");
         Object employeeAsObject = employeeAsPerson;
 
         register(employee);
@@ -34,13 +82,17 @@ public class InheritanceMain {
             employee = (Employee) employeeAsPerson;
         }
 
-        if(employee instanceof Person){
+        if (employee instanceof Person) {
             System.out.println("realy? )");
         }
     }
 
+    public static void register(Employee employee) {
+        System.out.println("employee registered " + employee.getName());
+    }
+
     public static void register(Person person) {
-        System.out.println("registered " + person.getName());
+        System.out.println("person registered " + person.getName());
     }
 
     public static void constructors() {
