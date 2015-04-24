@@ -6,24 +6,24 @@ import java.util.ArrayList;
  * Created by Mfarsikov on 22.04.2015.
  */
 public class InheritanceMain {
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
 
     }
 
     private static void polymorphismVsFieldsAndStaticMethods() {
-        Person purePerson = new Person("Ivan");
+        /*Person purePerson = new Person("Ivan");
         System.out.println("Person object as Person:\n" +
                 "   method: {" + purePerson.someMethod() + "} \n" +
                 "   out of class field: {" + purePerson.field + "} \n" +
                 "   out of class static method: {" + purePerson.staticMethod() + "} \n");
 
-        Employee pureEmployee = new Employee("Ivan", "T");
+        */Employee pureEmployee = new Employee("Ivan", "T");/*
         System.out.println("Employee object as Employee:\n" +
                 "   method: {" + pureEmployee.someMethod() + "} \n" +
                 "   out of class field: {" + pureEmployee.field + "} \n" +
                 "   out of class static method: {" + pureEmployee.staticMethod() + "}\n");
-
+*/
         Person employeeCastedToPerson = pureEmployee;
         System.out.println("Employee object casted to Person:\n" +
                 "   polymorphyc method: {" + employeeCastedToPerson.someMethod() + "} \n" +
